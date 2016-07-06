@@ -44,3 +44,29 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# added
+gem 'pry-rails', group: :development
+gem 'bootstrap-sass'
+gem 'database_cleaner', group: :test
+gem 'launchy', group: :test
+gem 'factory_girl_rails'
+gem 'ffaker'
+gem 'draw_erd' #, group: :development
+gem 'rails_layout', group:  [:development, :test]
+gem 'rspec', group: [:development, :test]
+gem 'rspec-rails', group: [:development, :test]
+gem 'capybara', group: [:development, :test]
+gem 'poltergeist', group: [:development, :test]
+gem 'rspec-collection_matchers', group: [:development, :test]
+gem 'guard-rspec', group:  [:development, :test]
+gem 'guard-rails', group:  [:development, :test]
+gem 'libnotify', group:  [:development, :test]
+gem 'rails-erd', group: :development
+gem "spring-commands-rspec", group: [:development, :test]
+gem 'shoulda-matchers', group: :test
+gem 'guard-livereload', group: :development, require: false
+gem 'rubocop', group: :development, require: false
+gem 'guard-rubocop', group: [:development, :test]
+gem 'seed-fu'
+
