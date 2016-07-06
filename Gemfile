@@ -59,7 +59,7 @@ gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'poltergeist', group: [:development, :test]
 gem 'rspec-collection_matchers', group: [:development, :test]
-gem 'guard-rspec', group:  [:development, :test]
+gem 'guard-rspec', group:  [:development, :test], require: false
 gem 'guard-rails', group:  [:development, :test]
 gem 'libnotify', group:  [:development, :test]
 gem 'rails-erd', group: :development

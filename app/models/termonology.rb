@@ -1,0 +1,2 @@
+class Termonology < ApplicationRecord
+end
