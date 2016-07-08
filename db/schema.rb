@@ -10,12 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706124031) do
+ActiveRecord::Schema.define(version: 20160709112540) do
+
+  create_table "codes", force: :cascade do |t|
+    t.string   "value",       null: false
+    t.string   "description"
+    t.integer  "codeset_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["codeset_id"], name: "index_codes_on_codeset_id"
+  end
 
   create_table "codesets", force: :cascade do |t|
     t.string   "issuer"
     t.string   "openehrid"
     t.string   "externalid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "terminology_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["terminology_id"], name: "index_groups_on_terminology_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "terminologies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
