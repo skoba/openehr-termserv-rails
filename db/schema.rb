@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709112540) do
+ActiveRecord::Schema.define(version: 20160710110953) do
 
   create_table "codes", force: :cascade do |t|
     t.string   "value",       null: false
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20160709112540) do
     t.string   "externalid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "concepts", force: :cascade do |t|
+    t.string   "conceptid"
+    t.string   "rubric"
+    t.integer  "language_id"
+    t.integer  "group_id"
+    t.integer  "terminology_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["group_id"], name: "index_concepts_on_group_id"
+    t.index ["language_id"], name: "index_concepts_on_language_id"
+    t.index ["terminology_id"], name: "index_concepts_on_terminology_id"
   end
 
   create_table "groups", force: :cascade do |t|
