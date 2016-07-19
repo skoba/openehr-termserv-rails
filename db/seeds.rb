@@ -11,12 +11,12 @@ ext.xpath('//codeset').each do |codeset|
   issuer = Issuer.find_or_create_by name: codeset.attribute('issuer').value
   openehrid = codeset.attribute('openehr_id').value
   externalid = codeset.attribute('external_id').value
-  Codeset.create(issuer: issuer,
+  cs = Codeset.create(issuer: issuer,
                  openehrid: openehrid,
                  externalid: externalid)
   codeset.xpath('//code').each do |code|
     value = code.attribute('value').value
-    description = code&.attribute('description')&.value
-    Code.create(value: value, description: description)
+    description = code.attribute('description')&.value
+    Code.create(value: value, description: description, codeset: cs)
   end
 end
