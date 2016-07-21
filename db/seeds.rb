@@ -14,7 +14,7 @@ ext.xpath('//codeset').each do |codeset|
   cs = Codeset.create(issuer: issuer,
                  openehrid: openehrid,
                  externalid: externalid)
-  codeset.xpath('//code').each do |code|
+  codeset.xpath('code').each do |code|
     value = code.attribute('value').value
     description = code.attribute('description')&.value
     Code.create(value: value, description: description, codeset: cs)

@@ -1,7 +1,7 @@
 <h1>Codes in openEHR terminology</h1>
 
 <% @codesets.each do |codeset| %>
-<h2>Codeset: <%= codeset.openehrid %>, Issuer: <%= codeset.issuer.name %></h2>
+<h2>Codeset: <%= codeset.openehrid %>, Issuer: <%= codeset.issuer.name %>, Name: <%= codeset.externalid %></h2>
 <table>
   <tr>
     <th>code</th><th>description</th>
