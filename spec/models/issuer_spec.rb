@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Issuer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_many :codesets }
+
+  let(:issuer) { build :issuer}
+
+  example 'validity check' do
+    expect(issuer).to be_valid
+  end
 end

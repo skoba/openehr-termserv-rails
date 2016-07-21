@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :issuer do
-    name "MyString"
+    name "ISO"
   end
 end

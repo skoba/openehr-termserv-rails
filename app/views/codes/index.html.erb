@@ -1,2 +1,15 @@
 <h1>Codes in openEHR terminology</h1>
 
+<% @codesets.each do |codeset| %>
+<h2>Codeset: <%= codeset.openehrid %>, Issuer: <%= codeset.issuer.name %></h2>
+<table>
+  <tr>
+    <th>code</th><th>description</th>
+  </tr>
+<% codeset.code.each do |code| %>
+  <tr>
+    <td><%= code.value %></td><td><%= code&.description %></td>
+  </tr>
+<% end %>  
+</table>
+<% end %>
