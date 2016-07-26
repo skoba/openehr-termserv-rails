@@ -1,0 +1,18 @@
+<h1>Concepts in openEHR terminology</h1>
+
+<% @terminologies.each do |terminology| %>
+<h2>Terminology:<%= terminology.name %>,  Version: <%= terminology&.version %> Language: </h2>
+<% terminology.groups.each do |group| %>
+<h3>Group: <%= group.name %></h3>
+<table>
+  <tr>
+    <th>ID</th><th>Rubric</th>
+  </tr>
+<% group.concepts.each do |concept| %>
+  <tr>
+    <td><%= concept.conceptid %></td><td><%= concept.rubric %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<% end %>

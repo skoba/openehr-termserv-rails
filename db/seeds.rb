@@ -20,3 +20,18 @@ ext.xpath('//codeset').each do |codeset|
     Code.create(value: value, description: description, codeset: cs)
   end
 end
+
+terms = Nokogiri::XML(File.read(File.join(Rails.root, 'db/openehr_terminology.xml')))
+terms.xpath('//terminology').each do |terminology|
+  name = terminology.attribute('name').value
+  t = Terminology.create(name: name)
+  terminology.xpath('group').each do |group|
+    name = group.attribute('name').value
+    g = Group.find_or_create_by name: name, terminology: t
+    group.xpath('concept').each do |concept|
+      id = concept.attribute('id').value
+      rubric = concept.attribute('rubric').value
+      Concept.create conceptid: id, rubric: rubric, group: g, terminology: t
+    end
+  end
+end

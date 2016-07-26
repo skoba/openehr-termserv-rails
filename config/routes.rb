@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'concept/show'
-
-  get 'concept/index'
-
+  resources :concepts, only: [:index, :show]
   resources :codes, only: [:index, :show]
 end
