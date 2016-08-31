@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenehrTermservRails</title>
+    <title>openEHR terminology server</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Terms", concepts_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Concepts", concepts_path %></li>
+        <li><%= link_to "Codesets", codes_path   %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container">
+<%= yield %>
+</div>
 
   <body>
     <%= yield %>

@@ -48,6 +48,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # added
 gem 'pry-rails', group: :development
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'database_cleaner', group: :test
 gem 'launchy', group: :test
 gem 'factory_girl_rails'
