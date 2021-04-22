@@ -25,3 +25,5 @@ public/assets/*
 /db/*.sqlite3-journal
 fontconfig/
 .idea
+/db/b.zip
+/db/b*.txt

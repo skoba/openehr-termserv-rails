@@ -107,3 +107,8 @@ guard 'livereload' do
   watch(%r{app/helpers/.+\.rb})
   watch(%r{config/locales/.+\.yml})
 end
+
+guard 'rails' do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
+end

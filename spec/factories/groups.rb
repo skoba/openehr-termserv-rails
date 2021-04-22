@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :group do
-    name "attestation reason"
+    name { "attestation reason" }
     terminology
   end
 end

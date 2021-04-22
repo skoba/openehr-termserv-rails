@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 ext = Nokogiri.XML(File.read(File.join(Rails.root, 'db/openehr_external_terminologies.xml')))
 ext.xpath('//codeset').each do |codeset|
   issuer = Issuer.find_or_create_by name: codeset.attribute('issuer').value
@@ -34,4 +26,14 @@ terms.xpath('//terminology').each do |terminology|
       Concept.create conceptid: id, rubric: rubric, group: g, terminology: t
     end
   end
+end
+
+require 'csv'
+japanese = Language.where code: 'ja'
+disease_names = Terminology.new(name: 'shoubyou')
+mhlw = Issuer.new(name: 'MHLW')
+disease_set = Codeset.create(issuer: mhlw, openehrid: 'shobyomei master', externalid: 'shoubyoumei master')
+
+CSV.foreach(Rails.root.join('db','b_20210101.txt'), encoding: 'Shift_JIS') do |row|
+  Code.create(value: row[2], description: row[5].encode(Encoding::UTF_8), codeset: disease_set)
 end

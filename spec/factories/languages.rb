@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :language do
-    code "ja"
-    description "Japanese"
+    code { "ja" }
+    description { "Japanese" }
   end
 end

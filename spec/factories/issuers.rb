@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :issuer do
-    name "ISO"
+    name { "ISO" }
   end
 end

@@ -1,8 +1,8 @@
 # coding: utf-8
-FactoryGirl.define do
+FactoryBot.define do
   factory :concept do
-    conceptid "240"
-    rubric "署名された"
+    conceptid { "240" }
+    rubric { "署名された" }
     language 
     group 
     terminology
