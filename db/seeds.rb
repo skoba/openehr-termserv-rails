@@ -29,11 +29,19 @@ terms.xpath('//terminology').each do |terminology|
 end
 
 require 'csv'
-japanese = Language.where code: 'ja'
+#japanese = Language.where code: 'ja'
 disease_names = Terminology.new(name: 'shoubyou')
 mhlw = Issuer.new(name: 'MHLW')
 disease_set = Codeset.create(issuer: mhlw, openehrid: 'shobyomei master', externalid: 'shoubyoumei master')
 
 CSV.foreach(Rails.root.join('db','b_20210101.txt'), encoding: 'Shift_JIS') do |row|
   Code.create(value: row[2], description: row[5].encode(Encoding::UTF_8), codeset: disease_set)
+  Code.create(value: row[2], description: row[9].encode(Encoding::UTF_8), codeset: disease_set)
+  Code.create(value: row[2], description: row[13].encode(Encoding::UTF_8), codeset: disease_set)
+end
+
+
+drug_set = Codeset.create(issuer: mhlw, openehrid: 'Receden master', externalid: 'Receden master')
+CSV.foreach(Rails.root.join('db', 'y.csv'), encoding: 'Shift_JIS') do |row|
+  Code.create(value: row[2], description: row[4].encode(Encoding::UTF_8), codeset: drug_set)
 end

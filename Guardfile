@@ -108,7 +108,7 @@ guard 'livereload' do
   watch(%r{config/locales/.+\.yml})
 end
 
-guard 'rails' do
+guard 'rails', port: 3333 do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end

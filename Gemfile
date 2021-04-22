@@ -72,3 +72,6 @@ gem 'guard-rails', group: [:development, :test], require: false
 gem 'rubocop', group: :development, require: false
 gem 'guard-rubocop', group: [:development, :test]
 gem 'seed-fu'
+gem 'listen', group: [:development, :test]
+gem 'spring-watcher-listen', group: [:development, :test]
+gem 'selenium-webdriver', group: :test

@@ -27,3 +27,5 @@ fontconfig/
 .idea
 /db/b.zip
 /db/b*.txt
+/db/y.zip
+/db/y.csv

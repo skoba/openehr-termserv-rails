@@ -56,10 +56,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.infer_base_class_for_anonymous_controllers = false
   config.order = 'random'
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   config.before(:all) do
-    FactoryGirl.reload
+    FactoryBot.reload
   end
 
   config.before(:suite) do
@@ -72,7 +72,9 @@ RSpec.configure do |config|
 
   config.after :each do
     DatabaseCleaner.clean
-  end  
+  end
+
+#  config.include RequestSpecHelper, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
