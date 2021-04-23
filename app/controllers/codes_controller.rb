@@ -5,6 +5,8 @@ class CodesController < ApplicationController
     else
       @codes = Code.where(value: code_params[:code]).or(Code.where(description: code_params[:description]))
     end
+
+    render 'index', formats: :json, handlers: 'jbuilder'
   end
 
   def show
